@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приклад з перевіркою відповідей</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .options {
+        margin-top: 10px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="question">
+      <p>
+        <strong>Питання 1:</strong> Які технології ви використовуєте в роботі?
+      </p>
+      <div class="options">
+        <label>
+          <input type="checkbox" name="question1" value="web" /> Веб-розробка
+        </label>
+        <label>
+          <input type="checkbox" name="question1" value="mobile" /> Мобільна
+          розробка
+        </label>
+        <label>
+          <input type="checkbox" name="question1" value="data" /> Обробка даних
+        </label>
+        <label>
+          <input type="checkbox" name="question1" value="ai" /> Штучний інтелект
+        </label>
+      </div>
+    </div>
+
+    <button onclick="checkAnswers()">Перевірити відповіді</button>
+
+    <script>
+      function checkAnswers() {
+        // Отримання всіх чекбоксів з питання 1
+        var checkboxesQuestion1 = document.getElementsByName("question1");
+
+        // Перевірка, які з них вибрані
+        var selectedOptionsQuestion1 = Array.from(checkboxesQuestion1)
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => checkbox.value);
+
+        // Виведення результатів
+        alert(
+          "Вибрані відповіді для Питання 1: " +
+            selectedOptionsQuestion1.join(", ")
+        );
+      }
+    </script>
+  </body>
+</html>
